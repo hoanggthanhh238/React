@@ -363,28 +363,29 @@
             // const root = ReactDOM.createRoot(document.getElementById('root'))
             // root.render(<App title="Lưu Thanh Hoàng" content="Hoàng Thanh"/>)
 
-            function List({data, children}) {
-                return (
-                    <ul>
-                        {data.map((item) => children(item))}
-                    </ul>
-                )
-            }
+            // function List({data, children}) {
+            //     return (
+            //         <ul>
+            //             {data.map((item) => children(item))}
+            //         </ul>
+            //     )
+            // }
 
-            function App() {
-                const sinhvien = ['Hoang','Thang','Nam','Quyet']
-                return (
-                    <div id="wrapper">
-                        <List data={sinhvien}>
-                            {(item) => {<li>{item}</li>}}
-                        </List>
-                    </div>
-                )
-            }
+            // function App() {
+            //     const sinhvien = ['Hoang','Thang','Nam','Quyet']
+            //     return (
+            //         <div id="wrapper">
+            //             <List data={sinhvien}>
+            //                 {(item) => {<li>{item}</li>}}
+            //             </List>
+            //         </div>
+            //     )
+            // }
 
-            const root = ReactDOM.createRoot(document.getElementById('root'))
-            root.render(<App/>)
+            // const root = ReactDOM.createRoot(document.getElementById('root'))
+            // root.render(<App/>)
 
         </script>
     </body>
 </html>
+<!-- git push -u origin laptop -->
