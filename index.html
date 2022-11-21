@@ -6,6 +6,9 @@
         <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+        <link rel="stylesheet" href="main.css">
+
     </head>
     <body>
         <div id="root"></div>
@@ -307,8 +310,8 @@
             // const root = ReactDOM.createRoot(document.getElementById('root'))
             // root.render(<App/>)
 
-            // Bài 19
-            // component object
+            // // Bài 19
+            // // component object
             // const Form = {
             //     Input() {
             //         return <input />
@@ -340,7 +343,7 @@
             //     return (
             //         <Component {...props}>{title}</Component>
             //     )
-            // }
+            //  }
             // function App() {
             //     return (
             //         <div>
@@ -352,21 +355,20 @@
             //         </div>
             //     )
             // }
-
-            // function App({title, content}) {
-            //     return (
-            //         <div id="test">
-            //             <h1>{title && content}</h1>
-            //         </div>
-            //     )
-            // }
+            // // function App({title, content}) {
+            // //     return (
+            // //         <div id="test">
+            // //             <h1>{title && content}</h1>
+            // //         </div>
+            // //     )
+            // // }
             // const root = ReactDOM.createRoot(document.getElementById('root'))
-            // root.render(<App title="Lưu Thanh Hoàng" content="Hoàng Thanh"/>)
+            // root.render(<App />)
 
             function List({data, children}) {
                 return (
                     <ul>
-                        {data.map((item) => children(item))}
+                        {data.map((item, index) => children(item, index))}
                     </ul>
                 )
             }
@@ -376,11 +378,11 @@
                 return (
                     <div id="wrapper">
                         <List data={sinhvien}>
-                            {(item) => {<li>{item}</li>}}
+                            {(item, index) => {return(<li key={index} className="abc">{item}</li>)}}
                         </List>
                     </div>
                 )
-            }
+            }            
 
             const root = ReactDOM.createRoot(document.getElementById('root'))
             root.render(<App/>)
