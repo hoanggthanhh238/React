@@ -6,6 +6,7 @@
         <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
         <div id="root"></div>
@@ -384,6 +385,25 @@
 
             // const root = ReactDOM.createRoot(document.getElementById('root'))
             // root.render(<App/>)
+
+            function Button({list, children}) {
+                return(
+                    <ul>
+                        {list.map((item, index) => children(item, index))}
+                    </ul>
+                )
+            }
+
+            function App() {
+                const ten = ['Thắng','Nam','Hoàng']
+                return (
+                    <Button list={ten}>
+                        {(item, index) => {return(<li key = {index} className="abc">{item}</li>)}}
+                    </Button>
+                )
+            }
+            const root = ReactDOM.createRoot(document.getElementById('root'))
+            root.render(<App/>)
 
         </script>
     </body>

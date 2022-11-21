@@ -1,0 +1,9 @@
+.abc{
+    font-style: normal;
+    size: 45pt;
+    color: #0083c2;
+    margin-left: 200px;
+    list-style-type: lower-greek;
+    /* position: absolute; */
+    left: 200px;
+}
