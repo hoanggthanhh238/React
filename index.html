@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lsng="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Thêm react vào website -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <!-- <script type="module" src="app.js"></script> -->
+        <!-- <h1 id="ten">Export modules</h1> -->
+        <script type="text/babel">
+            // // Bài 10: Thêm React cào webside
+            // const h1 = document.createElement('h1')
+            // h1.innerText = 'Lưu Thanh Hoàng'
+            // console.log(h1)
+            // h1.id = 'heading'
+            // h1.className = 'test class'
+            // Object.assign(h1.style, {
+            //     color: 'white',
+            //     backgroundColor: '#0083c2'
+            // })
+            // document.body.appendChild(h1)
+            // console.log(React.version);
+
+            // //bài 11 DOM và React Element
+            // // Tạo element bằng DOM
+            // const h1DOM = document.createElement('h1')
+            // h1DOM.title = 'Hello1'
+            // h1DOM.className = 'heading1'
+            // h1DOM.innerText = 'Hello1 anh Hoàng!'
+            // h1DOM.id = 'test1'
+            // document.body.appendChild(h1DOM)
+
+            // const ulDOM = document.createElement('ul')
+            // const liDOM1 = document.createElement('li')
+            // const liDOM2 = document.createElement('li')
+            // ulDOM.id = 'id-ulDOM'
+            // liDOM1.id = 'id-liDOM1'
+            // liDOM2.id = 'id-liDOM2'
+            // liDOM1.innerText = 'LiDOM1'
+            // liDOM2.innerText = 'LiDOM2'
+            // ulDOM.appendChild(liDOM1)
+            // ulDOM.appendChild(liDOM2)
+            // document.body.appendChild(ulDOM)
+
+            // //Tạo element với react
+            // const h1React = React.createElement('h1', {
+            //     title: 'Hello2',
+            //     className: 'heading2',
+            //     id: 'test2'
+            // }, 'Hello2', 'anh', 'Hoàng!')
+            // console.dir(h1DOM)
+            // console.log(h1React)
+
+            // const ulReact = React.createElement(
+            //     'ul',
+            //     {
+            //         id:'id_ulReact',
+            //         style: 'color: red;font-size:70'
+            //     },
+            //     React.createElement('li', {id: 'liDOM3'}, 'LiDOM3'),
+            //     React.createElement('li', {id: 'liDOM4'}, 'liDOM4')
+            // )
+            // console.log(ulReact)
+
+            // //Bài tập
+            // const isDiv = React.createElement(
+            //     'div',
+            //     {
+            //         className: 'post-item'
+            //     },
+            //     React.createElement('h2',{title:'Học React tại F8'},'Học ReactJS'),
+            //     React.createElement('p',null,'Học React từ cơ bản tới nâng cao')
+            // )
+
+            // // Bài 12 (Bài tập bài 11)
+            // // Get root Element
+            // const container = document.getElementById('root')
+
+            // // React-DOM@17 (Render ui)
+            // //ReactDOM.render(isDiv, root)
+            
+            // // React-DOM@18 (Render ui)
+            // const root = ReactDOM.createRoot(container)
+            // root.render(isDiv)
+
+            // Bài 14: JSX
+            // Bài tập bài 12
+            // const ulReact = React.createElement(
+            //     'ul',
+            //     {
+            //         id:'id_ulReact',
+            //         //style: 'color: red;font-size:70'
+            //     },
+            //     React.createElement(
+            //         'li',
+            //         {
+            //             id: 'liDOM3',
+            //             //style: 'color: red;font-size:70'
+            //         }, 'LiDOM3'),
+            //     React.createElement('li', {id: 'liDOM4'}, 'liDOM4')
+            // )
+            // const container = document.getElementById('root')
+            // const root = ReactDOM.createRoot(container)
+            // root.render(ulReact)
+
+            // const ul = <ul>
+            //         <li>Lưu Thanh</li>
+            //         <li>Hoàng</li>
+            //     </ul>
+            // const root = ReactDOM.createRoot(document.getElementById('root'))
+            // root.render(ul)
+            // //ReactDOM.render(ul,document.getElementById('root'))
+
+            // Bài tập
+            // const courses = [
+            //     {
+            //         name: 'HTML, CSS'
+            //     },
+            //     {
+            //         name: 'Responsive web design'
+            //     },
+            //     {
+            //         name: 'ReactJS'
+            //     }
+            // ]
+            // Cách bthg
+            // const ul = <ul>
+            //         <li>{courses[0].name}</li>
+            //         <li>{courses[1].name}</li>
+            //         <li>{courses[2].name}</li>
+            //     </ul>
+            // Dùng hàm map của mảng
+            // const ul = (
+            //     <ul>
+            //         {courses.map((courses, index) => // index là biến đếm của hàm map
+            //             <li key={index}>{courses.name}</li>
+            //         )}
+            //     </ul>
+            // )
+            // console.log(ul);
+
+            // const root = ReactDOM.createRoot(document.getElementById('root'))
+            // root.render(ul);
+
+            // Bài 16+17: React Function components và Classcomponents
+            //Bài tập (Có callback)
+
+            // Truyền property của function components thành biến truyền vào qua biến object (Như function bthg)
+            // function TagBaiDang(props) {      
+            //     // if (typeof props.callBack === 'function') // kiểm tra xem props.callBack có phải một hàm hay không (Nếu không tồn tại thì coi như không phải hàm với phép so sánh '===')
+            //     // props.callBack(Math.random())             // nếu k ktra => lỗi vì 2 lần gọi bên dưới không có hàm callback như hàm TagBaiDang yêu cầu
+            //     return (
+            //         <div className = "post-item">
+            //             <h2 className="post-title">{props.alt}</h2>
+            //             <p className="post-post-desc">{props.ho_ten}</p>
+            //             <p className="post-published">{props.dia_chi}</p>
+            //             <img src = {props.img} alt={props.alt}/>
+            //         </div>
+            //     )
+            // }
+            // function App () {
+            //     return (
+            //         <div className="bai-dang">
+            //             <TagBaiDang
+            //                 img="https://i1-dulich.vnecdn.net/2021/07/16/1-1626437591.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=BWzFqMmUWVFC1OfpPSUqMA"
+            //                 alt="1. Ảnh đẹp"
+            //                 ho_ten="1. Họ tên: Lưu Thanh Hoàng"
+            //                 dia_chi="1. Địa chỉ: Thanh Sơn - Kiến Thụy - Hải Phòng"
+            //                 // callBack={(random) => {
+            //                 //     console.log(random);
+            //                 // }}
+            //             />    
+            //         </div>
+            //     )
+            // }
+            // const root = ReactDOM.createRoot(document.getElementById('root'))
+            // root.render(<App/>) // Cú pháp khi render 1 components
+
+            // // Bài tập bài 17, 18, 19
+            // const mang = [
+            //     {
+            //         id: 1,
+            //         category_id: 1,
+            //         title: '1 HTML, CSS từ Zero đến Hero',
+            //         slug: '1 HTML, CSS',
+            //         description: '1 Xây dựng trang web',
+            //         thumbnail: '1 Lưu Thanh Hoàng',
+            //         content: null,
+            //         preview_origin: '1 Youtube',
+            //         preview_youtube_id: '1 RusUyegsS2n5',
+            //         preview_path: null,
+            //         language: '1 html',
+            //         syntax_highligh: '1 language-html',
+            //         level: '1 Trình độ cơ bản',
+            //         studen_count: 249
+            //     },
+            //     {
+            //         id: 2,
+            //         category_id: 2,
+            //         title: '2 HTML, CSS từ Zero đến Hero',
+            //         slug: '2 HTML, CSS',
+            //         description: '2 Xây dựng trang web',
+            //         thumbnail: '2 Lưu Thanh Hoàng',
+            //         content: null,
+            //         preview_origin: '2 Youtube',
+            //         preview_youtube_id: '2 RusUyegsS2n5',
+            //         preview_path: null,
+            //         language: '2 html',
+            //         syntax_highligh: '2 language-html',
+            //         level: '2 Trình độ cơ bản',
+            //         studen_count: 2457
+            //     },
+            //     {
+            //         id: 3,
+            //         category_id: 3,
+            //         title: '3 HTML, CSS từ Zero đến Hero',
+            //         slug: '3 HTML, CSS',
+            //         description: '3 Xây dựng trang web',
+            //         thumbnail: '3 Lưu Thanh Hoàng',
+            //         content: null,
+            //         preview_origin: '3 Youtube',
+            //         preview_youtube_id: '3 RusUyegsS2n5',
+            //         preview_path: null,
+            //         language: '3 html',
+            //         syntax_highligh: '3 language-html',
+            //         level: '3 Trình độ cơ bản',
+            //         studen_count: 1498
+            //     }
+            // ]
+
+            // // <Renderh/> dành cho cách 1
+            // function Renderh(props) {
+            //     return (
+            //         <div id="1divRT">
+            //             <p>ID: {props.id}</p>
+            //             <h1>Thumbnail: {props.thumbnail}</h1>
+            //             <p>Title: {props.Titile}</p>
+            //             <p>Studen count: {props.studenCount}</p>
+            //         </div>
+            //     )
+            // }
+
+            // //<Renderh/> dành cho cách 2
+            // function Renderh({mang, onClick}) {
+            //     return (
+            //         <div>
+            //             <p>ID: {mang.id}</p>
+            //             <h1>Thumbnail: {mang.thumbnail}</h1>
+            //             <p>Title: {mang.title}</p>
+            //             <p>Studen count: {mang.studen_count}</p>
+            //             <button
+            //                 onClick={() => onClick(mang)} // onClick = handleClick => handleClick là arrow function
+            //             >
+            //                 Click
+            //             </button>
+            //         </div>
+            //     )
+            // }
+            
+            // function App() {
+
+            //     const handleClick = (mang) => {
+            //         console.log(mang.level);
+            //     }
+
+            //     return (
+            //         <div>
+            //             {mang.map( (mang, index) => (
+            //                 // // Cách 1 khi object ít thuộc tính
+            //                 // <Renderh
+            //                 //     key = {index}
+            //                 //     id = {mang.id}
+            //                 //     thumbnail = {mang.thumbnail}
+            //                 //     title = {mang.title}
+            //                 //     studentCount = {mang.studen_count}
+            //                 // />
+            //                 //Khi object có nhiều thuộc tính thì nên dùng cách 2:
+            //                 <Renderh
+            //                     key = {index}
+            //                     mang = {mang}
+            //                     onClick = {handleClick}
+            //                 />
+            //             ))}
+            //         </div>
+            //     )
+            // }
+            // const root = ReactDOM.createRoot(document.getElementById('root'))
+            // root.render(<App/>)
+
+            // ///////////////////// Bài 18: DOM Event/////////////////////////
+            // function App() {
+            //     return (
+            //         <div>
+            //             <button 
+            //             onDoubleClick = {() => console.log(Math.random())}
+            //         >
+            //             Click me!
+            //         </button>    
+            //         </div>
+            //     )
+            // }
+
+            // const root = ReactDOM.createRoot(document.getElementById('root'))
+            // root.render(<App/>)
+
+            // Bài 19
+            // component object
+            // const Form = {
+            //     Input() {
+            //         return <input />
+            //     },
+            //     Chechbox() {
+            //         return <input type="Checkbox"/>
+            //     }
+            // }
+            // function App() {
+            //     const type = 'Chechbox'
+            //     const Component = Form[type]
+            //     return (
+            //         <div>
+            //             <Component/>    
+            //         </div>
+            //     )
+            // }
+
+            // function Button({title, href, onClick}) {
+            //     let Component = 'button' // Tạo component là loại button
+            //     const props = {}
+            //     if(href) {
+            //         Component = 'a'      // gán lại thành thẻ a
+            //         props.href = href
+            //     }
+            //     if (onClick) {
+            //         props.onClick = onClick
+            //     }
+            //     return (
+            //         <Component {...props}>{title}</Component>
+            //     )
+            // }
+            // function App() {
+            //     return (
+            //         <div>
+            //             <Button
+            //                 title="Click me!"
+            //                 href="https://www.w3schools.com/jsref/dom_obj_event.asp"
+            //                 onClick={() => console.log(Math.random())}
+            //             />
+            //         </div>
+            //     )
+            // }
+
+            // function App({title, content}) {
+            //     return (
+            //         <div id="test">
+            //             <h1>{title && content}</h1>
+            //         </div>
+            //     )
+            // }
+            // const root = ReactDOM.createRoot(document.getElementById('root'))
+            // root.render(<App title="Lưu Thanh Hoàng" content="Hoàng Thanh"/>)
+
+            function List({data, children}) {
+                return (
+                    <ul>
+                        {data.map((item) => children(item))}
+                    </ul>
+                )
+            }
+
+            function App() {
+                const sinhvien = ['Hoang','Thang','Nam','Quyet']
+                return (
+                    <div id="wrapper">
+                        <List data={sinhvien}>
+                            {(item) => {<li>{item}</li>}}
+                        </List>
+                    </div>
+                )
+            }
+
+            const root = ReactDOM.createRoot(document.getElementById('root'))
+            root.render(<App/>)
+
+        </script>
+    </body>
+</html>
