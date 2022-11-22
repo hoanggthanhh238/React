@@ -386,24 +386,24 @@
             // const root = ReactDOM.createRoot(document.getElementById('root'))
             // root.render(<App/>)
 
-            function Button({list, children}) {
-                return(
-                    <ul>
-                        {list.map((item, index) => children(item, index))}
-                    </ul>
-                )
-            }
+            // function Button({list, children}) {
+            //     return(
+            //         <ul>
+            //             {list.map((item, index) => children(item, index))}
+            //         </ul>
+            //     )
+            // }
 
-            function App() {
-                const ten = ['Thắng','Nam','Hoàng']
-                return (
-                    <Button list={ten}>
-                        {(item, index) => {return(<li key = {index} className="abc">{item}</li>)}}
-                    </Button>
-                )
-            }
-            const root = ReactDOM.createRoot(document.getElementById('root'))
-            root.render(<App/>)
+            // function App() {
+            //     const ten = ['Thắng','Nam','Hoàng']
+            //     return (
+            //         <Button list={ten}>
+            //             {(item, index) => {return(<li key = {index} className="abc">{item}</li>)}}
+            //         </Button>
+            //     )
+            // }
+            // const root = ReactDOM.createRoot(document.getElementById('root'))
+            // root.render(<App/>)
 
         </script>
     </body>
